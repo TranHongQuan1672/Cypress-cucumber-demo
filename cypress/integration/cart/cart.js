@@ -38,5 +38,5 @@ Then('A user will have empty cart', ()=>{
 })
 
 Then('A user will 1 item left on the cart', ()=>{
-    cy.get('span[class="shopping_cart_badge"]').eq(0)
+    cy.xpath('//span[@class="shopping_cart_badge"]').should('have.length',1)
 })
