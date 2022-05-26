@@ -40,3 +40,8 @@ Then('A user will have empty cart', ()=>{
 Then('A user will 1 item left on the cart', ()=>{
     cy.get('span[class="shopping_cart_badge"]').should('have.text','1')
 })
+
+Then('A user will see if 2 item they are correct', () =>{
+    cy.get('#item_4_title_link').should('have.text','Sauce Labs Backpack')
+    cy.get('#item_0_title_link').should('have.text','Sauce Labs Bike Light')
+})
