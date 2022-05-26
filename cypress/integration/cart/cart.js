@@ -17,15 +17,18 @@ And('A user can logged in the web page',()=>{
 })
 And('A user click Add to cart first item', ()=>{
     cy.get('#add-to-cart-sauce-labs-backpack').click()
+    cy.wait(5000)
 })
 And('A user click on Remove button',()=>{
     cy.get('#remove-sauce-labs-backpack').click()
 })
 And('A user click Add to cart second item', ()=>{
     cy.get('#add-to-cart-sauce-labs-bike-light').click()
+    cy.wait(5000)
 })
 And('A user click on Cart button', ()=>{
     cy.get('a[class="shopping_cart_link"]').click()
+    cy.wait(5000)
 })
 
 Then('A user will move to cart page with the item they choose', ()=>{
@@ -43,5 +46,7 @@ Then('A user will 1 item left on the cart', ()=>{
 
 Then('A user will see if 2 item they are correct', () =>{
     cy.get('#item_4_title_link').should('have.text','Sauce Labs Backpack')
+    cy.wait(5000)
     cy.xpath('//div[contains(text(),"Sauce Labs Bike Light")]').should('have.text','Sauce Labs Bike Light')
+    cy.wait(5000)
 })
