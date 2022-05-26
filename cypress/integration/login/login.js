@@ -1,7 +1,7 @@
 import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 
 Given('A user open the login page', () =>{
-    cy.visit('https://www.saucedemo.com')
+    cy.visit('/')
 })
 When('A user type in the username {string}', (username)=>{
     cy.get('#user-name').type(username)

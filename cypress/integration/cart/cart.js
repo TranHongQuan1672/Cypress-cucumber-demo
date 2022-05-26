@@ -1,7 +1,7 @@
 import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
 
 Given('A user open the login page', () =>{
-    cy.visit('https://www.saucedemo.com')
+    cy.visit('/')
 })
 When('A user type in the username {string}', (username)=>{
     cy.get('#user-name').type(username)
@@ -43,5 +43,5 @@ Then('A user will 1 item left on the cart', ()=>{
 
 Then('A user will see if 2 item they are correct', () =>{
     cy.get('#item_4_title_link').should('have.text','Sauce Labs Backpack')
-    cy.get('#item_0_title_link').should('have.text','Sauce Labs Bike Light')
+    cy.xpath('//div[contains(text(),"Sauce Labs Bike Light")]').should('have.text','Sauce Labs Bike Light')
 })
