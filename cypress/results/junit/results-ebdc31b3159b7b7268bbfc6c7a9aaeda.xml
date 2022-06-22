@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="3.9970" tests="3" failures="1">
+  <testsuite name="Root Suite" timestamp="2022-06-22T06:13:24" tests="0" file="cypress/integration/login.feature" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Login" timestamp="2022-06-22T06:13:24" tests="3" time="3.9970" failures="1">
+    <testcase name="Login Check Login (example #1)" time="0.0000" classname="Check Login (example #1)">
+      <failure message="Timed out retrying after 1000ms: Expected to find element: `.ant-message-custom-content`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 1000ms: Expected to find element: `.ant-message-custom-content`, but never found it.
+    at Object.tobeSuccessful (https://vcpmc.dev-altamedia.com/__cypress/tests?p=cypress\integration\login.feature:165:14)
+    at Context.eval (https://vcpmc.dev-altamedia.com/__cypress/tests?p=cypress\integration\login.feature:63:41)
+    at Context.resolveAndRunStepDefinition (https://vcpmc.dev-altamedia.com/__cypress/tests?p=cypress\integration\login.feature:10618:29)
+    at Context.eval (https://vcpmc.dev-altamedia.com/__cypress/tests?p=cypress\integration\login.feature:9939:35)]]></failure>
+    </testcase>
+    <testcase name="Login Check Login (example #2)" time="2.0040" classname="Check Login (example #2)">
+    </testcase>
+    <testcase name="Login Check Login (example #3)" time="1.9930" classname="Check Login (example #3)">
+    </testcase>
+  </testsuite>
+</testsuites>

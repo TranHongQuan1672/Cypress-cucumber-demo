@@ -1,39 +1,31 @@
-import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
+import { And, Given, Then, When } from "cypress-cucumber-preprocessor/steps";
+import LoginPage from "../ui/LoginPageUI";
+import ResultPage from "../ui/ResultPageUI"
 
-Given('A user open the login page', () =>{
-    cy.visit('/')
-})
-When('A user type in the username {string}', (username)=>{
-    cy.get('#user-name').type(username)
-})
-And('A user enter the password {string}',(password)=>{
-    cy.get('#password').type(password)
-})
-And('A user click Login button',()=>{
-    cy.get('#login-button').click()
-})
-And('A user click on Menu button',()=>{
-    cy.get('#react-burger-menu-btn').click()
-})
-And('A user click on Log out button',()=>{
-    cy.get('#logout_sidebar_link').click()
-})
-Then('A user can logged in the web page',()=>{
-    cy.url().should('contains','/inventory.html')
+Given ('Change size off page', ()=>{
+    cy.viewport(1280,800)
 })
 
-Then('A user will receiving failed message', ()=>{
-    cy.get('h3').should('have.text','Epic sadface: Sorry, this user has been locked out.')
+Given ('We visit VCPMC website to login page', ()=>{
+    LoginPage.visit()
 })
-
-Then('A user will receiving wrong password message',()=>{
-    cy.get('h3').should('have.text','Epic sadface: Username and password do not match any user in this service')
+When("Change languages", ()=>{
+    cy.get('.ant-select-selection-item').click()
+    cy.contains('Tiếng Việt').click()
 })
-
-Then('A user can logged in a specific problem use web page', ()=>{
-    cy.url().should('contains','/inventory.html')
+And("login with {string} and {string}", (username, password)=>{
+    LoginPage.enter_username(username)
+    LoginPage.enter_password(password)
+    LoginPage.pressLogin()
 })
-
-Then('A user logged out of the we page and return to log in web page', ()=>{
-    cy.url('https://www.saucedemo.com')
+Then('Assert login sucessful {string}', (noti) =>{
+    ResultPage.expect(noti).tobeSuccessful()
+})
+And('Assert user {string}', (username)=>{
+    LoginPage.assertUser(username)
+})
+Then('Assert login invalid {string}',(noti)=>{
+    
+    const popup = '.ant-message-custom-content'
+    cy.get(popup, {timeout : 1000}).should('have.text',noti)
 })
